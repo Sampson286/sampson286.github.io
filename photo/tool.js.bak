@@ -1,6 +1,6 @@
-"use strict";
+    "use strict";
     const fs = require("fs");
-    const path = "D:\GitHub\themes\yilia\source\photos";
+    const path = "../../photos";
 
     fs.readdir(path, function (err, files) {
         if (err) {
