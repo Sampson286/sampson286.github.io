@@ -64,7 +64,7 @@
 			maxHeight : 600,
 			pixelRatio: 1, // Set to 2 for retina display support
 
-			autoSize   : true,
+			
 			autoHeight : false,
 			autoWidth  : false,
 

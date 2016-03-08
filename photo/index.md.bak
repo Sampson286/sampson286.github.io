@@ -1,0 +1,6 @@
+---
+title: 相册
+date: 2016-03-07 18:02:27
+---
+<link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet">
+<div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div>
