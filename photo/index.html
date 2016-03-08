@@ -4,27 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>java正则使用及总结 | Zyc</title>
+  <title>相册 | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正则表达是只存在我的大学记忆中了，最近几天在工作中遇到了切割字符串的需求。开始想了一些方式发现都不是很好决定用正则试一试。正好借此机会总结一下。
-
-
-正则表达式，又称正规表示法、常规表示法（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。在很多文本编辑器里，正则表">
-<meta property="og:type" content="article">
-<meta property="og:title" content="java正则使用及总结">
-<meta property="og:url" content="http://yoursite.com/2016/03/07/java正则使用及总结/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="相册">
+<meta property="og:url" content="http://yoursite.com/photo/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description" content="正则表达是只存在我的大学记忆中了，最近几天在工作中遇到了切割字符串的需求。开始想了一些方式发现都不是很好决定用正则试一试。正好借此机会总结一下。
-
-
-正则表达式，又称正规表示法、常规表示法（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。在很多文本编辑器里，正则表">
-<meta property="og:updated_time" content="2016-03-07T09:37:15.477Z">
+<meta property="og:description">
+<meta property="og:updated_time" content="2016-03-08T02:23:08.968Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java正则使用及总结">
-<meta name="twitter:description" content="正则表达是只存在我的大学记忆中了，最近几天在工作中遇到了切割字符串的需求。开始想了一些方式发现都不是很好决定用正则试一试。正好借此机会总结一下。
-
-
-正则表达式，又称正规表示法、常规表示法（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。在很多文本编辑器里，正则表">
+<meta name="twitter:title" content="相册">
+<meta name="twitter:description">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -197,11 +188,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-java正则使用及总结" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/07/java正则使用及总结/" class="article-date">
-  	<time datetime="2016-03-07T08:58:31.000Z" itemprop="datePublished">2016-03-07</time>
+      <a href="/photo/index.html" class="article-date">
+  	<time datetime="2016-03-07T10:02:27.000Z" itemprop="datePublished">2016-03-07</time>
 </a>
     </div>
   
@@ -214,7 +205,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      java正则使用及总结
+      相册
     </h1>
   
 
@@ -222,10 +213,6 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -234,69 +221,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>正则表达是只存在我的大学记忆中了，最近几天在工作中遇到了切割字符串的需求。开始想了一些方式发现都不是很好决定用正则试一试。正好借此机会总结一下。</p>
-<hr>
-<blockquote>
-<p>正则表达式，又称正规表示法、常规表示法（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式使用单个字符串来描述、匹配一系列符合某个句法规则的字符串。在很多文本编辑器里，正则表达式通常被用来检索、替换那些符合某个模式的文本。</p>
-</blockquote>
-<ol>
-<li>这次主要需要分割的格式为:数字、汉字、字母为顺序的字符串如00晴Sunny01多云Cloudy，进行分割把数字取出作为键，其余的值以实例方式存为value。<a id="more"></a>
-</li>
-</ol>
-<hr>
-<pre><code>public class WeatherId2Detail {
-/**为天气编码的字符串*/
-private static String weather_detail=&quot;00晴Sunny01多云Cloudy02阴Overcast03阵雨Shower04雷阵雨Thundershower&quot; +
-        &quot;05雷阵雨伴有冰雹Thundershowerwithhail06雨夹雪Sleet07小雨Lightrain08中雨Moderaterain09大雨Heavyrain10暴雨Storm&quot; +
-        &quot;11大暴雨Heavystorm12特大暴雨Severestorm13阵雪Snowflurry14小雪Lightsnow15中雪Moderatesnow16大雪Heavysnow17暴雪Snowstorm&quot; +
-        &quot;18雾Foggy19冻雨Icerain20沙尘暴Duststorm21小到中雨Lighttomoderaterain22中到大雨Moderatetoheavyrain23大到暴雨Heavyraintostorm&quot; +
-        &quot;24暴雨到大暴雨Stormtoheavystorm25大暴雨到特大暴雨Heavytoseverestorm26小到中雪Lighttomoderatesnow27中到大雪Moderatetoheavysnow&quot; +
-        &quot;28大到暴雪Heavysnowtosnowstorm29浮尘Dust30扬沙Sand31强沙尘暴Sandstorm53霾Haze99无Unknown&quot;;
-public static HashMap&lt;String, WeatherDetailInfo&gt; weatherDetail=new HashMap&lt;&gt;();
-static{
-    int i=0;
-    Pattern pattern = Pattern.compile(&quot;[\\u4e00-\\u9fa5]+|\\d+|[a-z|A-Z]+&quot;);
-    Matcher matcher = pattern.matcher( weather_detail );
-    String key = &quot;&quot; ;
-    String v1 = &quot;&quot;;
-    String v2=&quot;&quot;;
-    while ( matcher.find() ) {
-        i++;
-        if(i==1){
-            key=matcher.group();
-        }else if(i==2){
-            v1=matcher.group();
-        }else if(i==3){
-            v2=matcher.group();
-            i=0;
-            weatherDetail.put(key, new WeatherDetailInfo(v2, v1));
-        }
-    }
-}}
-</code></pre><p>在此方法中主要使用到知识有：</p>
-<ol>
-<li>\u4e00-\u9fa5为Unicode编码中的汉字编码</li>
-<li>正则的元字符，+匹配前面的子表达式一次或多次(大于等于1次）</li>
-</ol>
-<hr>
-<p><a href="http://baike.baidu.com/link?url=N8-Jm3_HeoeGfGC-bF7kK0NnUSEtowkkvc8roIAzPViLBexWtS__wnCHqvUCR0srSky6VCgk1050teYTn3vuiK" target="_blank" rel="external">正则元字符</a></p>
-
+        <p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
+<div class="instagram"><br><section class="archives album"><br><ul class="img-box-ul"></ul><br></section><br></div>
       
     </div>
     
   </div>
   
     
-<nav id="article-nav">
-  
-  
-    <a href="/2016/03/07/Android/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
   
 </article>
 
@@ -326,7 +258,7 @@ static{
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="java正则使用及总结" data-title="java正则使用及总结" data-url="http://yoursite.com/2016/03/07/java正则使用及总结/"></div>
+	<div class="ds-thread" data-thread-key="undefined" data-title="相册" data-url="http://yoursite.com/photo/index.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -370,7 +302,7 @@ static{
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
