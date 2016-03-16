@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/3 | Zyc</title>
+  <title>jenkins+gradle+android自动化构建apk | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zyc">
-<meta property="og:url" content="http://yoursite.com/archives/2016/03/index.html">
+  <meta name="description" content="安装jenkins，这个网上教程挺多的。 
+在服务配置jdk、gradle、android环境变量，解压文件到目录。配置环境变量：vi etc/profile在文件底部添加export GRADLE_HOME=”/android_client/gradle-2.7”export ANDROID_HOME=”/android_client/sdk”export JAVA_HOME=”/usr/lo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jenkins+gradle+android自动化构建apk">
+<meta property="og:url" content="http://yoursite.com/2016/03/10/jenkins-gradle-android自动化构建apk/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description">
+<meta property="og:description" content="安装jenkins，这个网上教程挺多的。 
+在服务配置jdk、gradle、android环境变量，解压文件到目录。配置环境变量：vi etc/profile在文件底部添加export GRADLE_HOME=”/android_client/gradle-2.7”export ANDROID_HOME=”/android_client/sdk”export JAVA_HOME=”/usr/lo">
+<meta property="og:updated_time" content="2016-03-16T02:32:44.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zyc">
-<meta name="twitter:description">
+<meta name="twitter:title" content="jenkins+gradle+android自动化构建apk">
+<meta name="twitter:description" content="安装jenkins，这个网上教程挺多的。 
+在服务配置jdk、gradle、android环境变量，解压文件到目录。配置环境变量：vi etc/profile在文件底部添加export GRADLE_HOME=”/android_client/gradle-2.7”export ANDROID_HOME=”/android_client/sdk”export JAVA_HOME=”/usr/lo">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -187,173 +191,112 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-jenkins-gradle-android自动化构建apk" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/10/jenkins-gradle-android自动化构建apk/" class="archive-article-date">
-  	<time datetime="2016-03-10T07:07:14.000Z" itemprop="datePublished">Mar 10</time>
+    <div class="article-meta">
+      <a href="/2016/03/10/jenkins-gradle-android自动化构建apk/" class="article-date">
+  	<time datetime="2016-03-10T07:07:14.000Z" itemprop="datePublished">2016-03-10</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/10/jenkins-gradle-android自动化构建apk/">jenkins+gradle+android自动化构建apk</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jenkins+gradle+android自动化构建apk
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins打包/">jenkins打包</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </div>
+      
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/07/java正则使用及总结/" class="archive-article-date">
-  	<time datetime="2016-03-07T08:58:31.000Z" itemprop="datePublished">Mar 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/07/java正则使用及总结/">java正则使用及总结</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>安装jenkins，这个网上教程挺多的。 </li>
+<li>在服务配置jdk、gradle、android环境变量，解压文件到目录。配置环境变量：<br>vi etc/profile在文件底部添加<br>export GRADLE_HOME=”/android_client/gradle-2.7”<br>export ANDROID_HOME=”/android_client/sdk”<br>export JAVA_HOME=”/usr/local/jdk7”<br>export PATH=”\$PATH:\$JAVA_HOME/bin:\$GRADLE_HOME/bin:\$ANDROID_HOME/tools”<br>进行验证是否正确配置<br>3.在jenkins 系统管理&gt;管理节点<br>Name：节点名称<br>Description：节点描述，支持中文<br># of executors：最大同时构建数量(根据机器的性能定，单颗四核cpu建议不要超过5)【必须为数字】<br>Remote FS root：节点的根目录<br>Labels：标记(又叫做标签)<br>host:主机Ip<br>Launch method：运行方式有四个选项。建议选择第1<br>【推荐】Launch slave agents on Unix machines via SSH   在Unix(包括Linux)机器上通过SSH通道连接节点 (适用于Unix和Linux)<br>Credentials：凭据(如果为空或者不可选择，请在系统管理→Manage Credentials中配置。Manage Credentials的配置非常简单，这里就不在描述了。Manage Credentials配置完成后，需刷新节点配置页面才会显示。)</li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/07/java正则使用及总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java正则使用及总结</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/07/Android/" class="archive-article-date">
-  	<time datetime="2016-03-07T07:52:31.000Z" itemprop="datePublished">Mar 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/07/Android/">Android</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/04/Androide-Developer-文章/" class="archive-article-date">
-  	<time datetime="2016-03-04T06:09:08.000Z" itemprop="datePublished">Mar 4</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/04/Androide-Developer-文章/">Androide Developer 文章</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="jenkins-gradle-android自动化构建apk" data-title="jenkins+gradle+android自动化构建apk" data-url="http://yoursite.com/2016/03/10/jenkins-gradle-android自动化构建apk/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/04/hello-world/" class="archive-article-date">
-  	<time datetime="2016-03-04T01:41:18.783Z" itemprop="datePublished">Mar 4</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/04/hello-world/">Hello World</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -379,8 +322,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

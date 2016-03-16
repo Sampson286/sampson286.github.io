@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/java/" style="font-size: 20px;">java</a>
+						<a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jenkins打包/" style="font-size: 10px;">jenkins打包</a>
 					</div>
 				</section>
 				
@@ -188,6 +188,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-jenkins-gradle-android自动化构建apk" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/10/jenkins-gradle-android自动化构建apk/" class="article-date">
+  	<time datetime="2016-03-10T07:07:14.000Z" itemprop="datePublished">2016-03-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/10/jenkins-gradle-android自动化构建apk/">jenkins+gradle+android自动化构建apk</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>安装jenkins，这个网上教程挺多的。 </li>
+<li>在服务配置jdk、gradle、android环境变量，解压文件到目录。配置环境变量：<br>vi etc/profile在文件底部添加<br>export GRADLE_HOME=”/android_client/gradle-2.7”<br>export ANDROID_HOME=”/android_client/sdk”<br>export JAVA_HOME=”/usr/local/jdk7”<br>export PATH=”\$PATH:\$JAVA_HOME/bin:\$GRADLE_HOME/bin:\$ANDROID_HOME/tools”<br>进行验证是否正确配置<br>3.在jenkins 系统管理&gt;管理节点<br>Name：节点名称<br>Description：节点描述，支持中文<br># of executors：最大同时构建数量(根据机器的性能定，单颗四核cpu建议不要超过5)【必须为数字】<br>Remote FS root：节点的根目录<br>Labels：标记(又叫做标签)<br>host:主机Ip<br>Launch method：运行方式有四个选项。建议选择第1<br>【推荐】Launch slave agents on Unix machines via SSH   在Unix(包括Linux)机器上通过SSH通道连接节点 (适用于Unix和Linux)<br>Credentials：凭据(如果为空或者不可选择，请在系统管理→Manage Credentials中配置。Manage Credentials的配置非常简单，这里就不在描述了。Manage Credentials配置完成后，需刷新节点配置页面才会显示。)</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins打包/">jenkins打包</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-java正则使用及总结" class="article article-type-post" itemscope itemprop="blogPost">
   
