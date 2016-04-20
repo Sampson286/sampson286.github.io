@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -203,9 +203,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在使用proguard混淆APK报一下错误<br>Error:Execution failed for task ‘:auction-app:proguardRelease’.</p>
+        <p>在使用proguard混淆APK报一下错误</p>
 <blockquote>
-<p>java.io.IOException: Can’t read [/auction-app/build/intermediates/exploded-aar/paimai-Android/share/unspecified/libs/libammsdk.jar(;;;;;;!META-INF/MANIFEST.MF)] (Can’t process class [com/tencent/wxop/stat/al.class] (Unknown verification type [95] in stack map frame))<br>解决办法找到proguard源码中proguard\src\proguard\classfile\ClassConstants.java类，然后修改ATTR_StackMapTable的值，将原来的的StackMapTable改为dummy.重新打包进行替换原来的包，但是有点需要注意的时gradle 没有使用android 中的jar我以前一直替换SDK的jar导致始终不成功，C:\Users\用户.gradle\caches\modules-2\files-2.1\net.sf.proguard\proguard-base\4.11\76730af417bb42da22b16e49f49e67863382b9bd\这是gradle使用的路径进进行相应版本的替换就可以了。</p>
+<p>Error:Execution failed for task ‘:auction-app:proguardRelease’.<br>java.io.IOException: Can’t read [/auction-app/build/intermediates/exploded-aar/paimai-Android/share/unspecified/libs/libammsdk.jar(;;;;;;!META-INF/MANIFEST.MF)] (Can’t process class [com/tencent/wxop/stat/al.class] (Unknown verification type [95] in stack map frame))<br>解决办法找到proguard源码中proguard\src\proguard\classfile\ClassConstants.java类，然后修改ATTR_StackMapTable的值，将原来的的StackMapTable改为dummy.重新打包进行替换原来的包，但是有点需要注意的时gradle 没有使用android 中的jar我以前一直替换SDK的jar导致始终不成功，C:\Users\用户.gradle\caches\modules-2\files-2.1\net.sf.proguard\proguard-base\4.11\76730af417bb42da22b16e49f49e67863382b9bd\这是gradle使用的路径进进行相应版本的替换就可以了。</p>
 </blockquote>
 
       
