@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jenkins打包/" style="font-size: 10px;">jenkins打包</a>
+						<a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jenkins打包/" style="font-size: 10px;">jenkins打包</a>
 					</div>
 				</section>
 				
@@ -176,6 +176,66 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-apk混淆错误" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/12/apk混淆错误/" class="article-date">
+  	<time datetime="2016-03-12T08:02:14.000Z" itemprop="datePublished">2016-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/12/apk混淆错误/">apk混淆错误</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用proguard混淆APK报一下错误<br>Error:Execution failed for task ‘:auction-app:proguardRelease’.</p>
+<blockquote>
+<p>java.io.IOException: Can’t read [/auction-app/build/intermediates/exploded-aar/paimai-Android/share/unspecified/libs/libammsdk.jar(;;;;;;!META-INF/MANIFEST.MF)] (Can’t process class [com/tencent/wxop/stat/al.class] (Unknown verification type [95] in stack map frame))<br>解决办法找到proguard源码中proguard\src\proguard\classfile\ClassConstants.java类，然后修改ATTR_StackMapTable的值，将原来的的StackMapTable改为dummy.重新打包进行替换原来的包，但是有点需要注意的时gradle 没有使用android 中的jar我以前一直替换SDK的jar导致始终不成功，C:\Users\用户.gradle\caches\modules-2\files-2.1\net.sf.proguard\proguard-base\4.11\76730af417bb42da22b16e49f49e67863382b9bd\这是gradle使用的路径进进行相应版本的替换就可以了。</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-jenkins-gradle-android自动化构建apk" class="article article-type-post" itemscope itemprop="blogPost">
   

@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>相册 | Zyc</title>
+  <title>apk混淆错误 | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://yoursite.com/photo/index.html">
+  <meta name="description" content="在使用proguard混淆APK报一下错误Error:Execution failed for task ‘:auction-app:proguardRelease’.
+
+java.io.IOException: Can’t read [/auction-app/build/intermediates/exploded-aar/paimai-Android/share/unspecified/li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="apk混淆错误">
+<meta property="og:url" content="http://yoursite.com/2016/03/12/apk混淆错误/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-03-08T03:41:31.340Z">
+<meta property="og:description" content="在使用proguard混淆APK报一下错误Error:Execution failed for task ‘:auction-app:proguardRelease’.
+
+java.io.IOException: Can’t read [/auction-app/build/intermediates/exploded-aar/paimai-Android/share/unspecified/li">
+<meta property="og:updated_time" content="2016-04-20T08:08:52.786Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description">
+<meta name="twitter:title" content="apk混淆错误">
+<meta name="twitter:description" content="在使用proguard混淆APK报一下错误Error:Execution failed for task ‘:auction-app:proguardRelease’.
+
+java.io.IOException: Can’t read [/auction-app/build/intermediates/exploded-aar/paimai-Android/share/unspecified/li">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -176,11 +182,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-apk混淆错误" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/photo/index.html" class="article-date">
-  	<time datetime="2016-03-07T10:02:27.000Z" itemprop="datePublished">2016-03-07</time>
+      <a href="/2016/03/12/apk混淆错误/" class="article-date">
+  	<time datetime="2016-03-12T08:02:14.000Z" itemprop="datePublished">2016-03-12</time>
 </a>
     </div>
   
@@ -193,7 +199,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      apk混淆错误
     </h1>
   
 
@@ -201,6 +207,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -209,16 +219,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><link type="text/css" href="/fancybox/jquery.fancybox.css" rel="stylesheet"></p>
-<div class="instagram"><section class="archives album"><ul class="img-box-ul"></ul></section></div>
+        <p>在使用proguard混淆APK报一下错误<br>Error:Execution failed for task ‘:auction-app:proguardRelease’.</p>
+<blockquote>
+<p>java.io.IOException: Can’t read [/auction-app/build/intermediates/exploded-aar/paimai-Android/share/unspecified/libs/libammsdk.jar(;;;;;;!META-INF/MANIFEST.MF)] (Can’t process class [com/tencent/wxop/stat/al.class] (Unknown verification type [95] in stack map frame))<br>解决办法找到proguard源码中proguard\src\proguard\classfile\ClassConstants.java类，然后修改ATTR_StackMapTable的值，将原来的的StackMapTable改为dummy.重新打包进行替换原来的包，但是有点需要注意的时gradle 没有使用android 中的jar我以前一直替换SDK的jar导致始终不成功，C:\Users\用户.gradle\caches\modules-2\files-2.1\net.sf.proguard\proguard-base\4.11\76730af417bb42da22b16e49f49e67863382b9bd\这是gradle使用的路径进进行相应版本的替换就可以了。</p>
+</blockquote>
 
-<script src="/js/photo.js"></script>
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/10/jenkins-gradle-android自动化构建apk/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jenkins+gradle+android自动化构建apk（Linux服务器）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -248,7 +269,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="相册" data-url="http://yoursite.com/photo/index.html"></div>
+	<div class="ds-thread" data-thread-key="apk混淆错误" data-title="apk混淆错误" data-url="http://yoursite.com/2016/03/12/apk混淆错误/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -292,7 +313,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
