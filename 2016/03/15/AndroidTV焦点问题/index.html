@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016/3 | Zyc</title>
+  <title>AndroidTV焦点问题 | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zyc">
-<meta property="og:url" content="http://yoursite.com/archives/2016/03/index.html">
+  <meta name="description" content="1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外表控件进行切换有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用View x=    view.focusSearch(View.FOCUS_UP);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AndroidTV焦点问题">
+<meta property="og:url" content="http://yoursite.com/2016/03/15/AndroidTV焦点问题/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description">
+<meta property="og:description" content="1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外表控件进行切换有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用View x=    view.focusSearch(View.FOCUS_UP);">
+<meta property="og:updated_time" content="2016-05-18T03:37:47.521Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zyc">
-<meta name="twitter:description">
+<meta name="twitter:title" content="AndroidTV焦点问题">
+<meta name="twitter:description" content="1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外表控件进行切换有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用View x=    view.focusSearch(View.FOCUS_UP);">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -175,177 +176,115 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-AndroidTV焦点问题" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/15/AndroidTV焦点问题/" class="archive-article-date">
-  	<time datetime="2016-03-15T03:27:16.000Z" itemprop="datePublished">Mar 15</time>
+    <div class="article-meta">
+      <a href="/2016/03/15/AndroidTV焦点问题/" class="article-date">
+  	<time datetime="2016-03-15T03:27:16.000Z" itemprop="datePublished">2016-03-15</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/15/AndroidTV焦点问题/">AndroidTV焦点问题</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      AndroidTV焦点问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AndroidTV/">AndroidTV</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+      </div>
+      
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/13/URL参数解析的方式/" class="archive-article-date">
-  	<time datetime="2016-03-13T03:02:36.000Z" itemprop="datePublished">Mar 13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/13/URL参数解析的方式/">URL参数解析的方式</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外表控件进行切换有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用<br><code>View x=    view.focusSearch(View.FOCUS_UP);
+                System.out.println(&quot;直播向上操作的视图&quot;+x.getId());</code><br>来进行验证响应操作后下一个得到焦点的视图。<br>这是可以给groupView 来设置<br><code>android:descendantFocusability=&quot;afterDescendants&quot;</code><br>来控制parent 和child直接的焦点问题<br>2.descendantFocusability有三个属性</p>
+<ol>
+<li>beforeDescendants：viewgroup会优先其子类控件而获取到焦点</li>
+<li>afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点</li>
+<li>blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点</li>
+</ol>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tip/">tip</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/13/URL参数解析的方式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">URL参数解析的方式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/12/apk混淆错误/" class="archive-article-date">
-  	<time datetime="2016-03-12T08:02:14.000Z" itemprop="datePublished">Mar 12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/12/apk混淆错误/">apk混淆错误</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/10/jenkins-gradle-android自动化构建apk/" class="archive-article-date">
-  	<time datetime="2016-03-10T07:07:14.000Z" itemprop="datePublished">Mar 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/10/jenkins-gradle-android自动化构建apk/">jenkins+gradle+android自动化构建apk（Linux服务器）</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins打包/">jenkins打包</a></li></ul>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="AndroidTV焦点问题" data-title="AndroidTV焦点问题" data-url="http://yoursite.com/2016/03/15/AndroidTV焦点问题/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/07/java正则使用及总结/" class="archive-article-date">
-  	<time datetime="2016-03-07T08:58:31.000Z" itemprop="datePublished">Mar 7</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/07/java正则使用及总结/">java正则使用及总结</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -371,8 +310,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jenkins打包/" style="font-size: 10px;">jenkins打包</a>
+						<a href="/tags/AndroidTV/" style="font-size: 10px;">AndroidTV</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jenkins打包/" style="font-size: 10px;">jenkins打包</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a>
 					</div>
 				</section>
 				
@@ -176,6 +176,131 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-AndroidTV焦点问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/15/AndroidTV焦点问题/" class="article-date">
+  	<time datetime="2016-03-15T03:27:16.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/AndroidTV焦点问题/">AndroidTV焦点问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外表控件进行切换有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用<br><code>View x=    view.focusSearch(View.FOCUS_UP);
+                System.out.println(&quot;直播向上操作的视图&quot;+x.getId());</code><br>来进行验证响应操作后下一个得到焦点的视图。<br>这是可以给groupView 来设置<br><code>android:descendantFocusability=&quot;afterDescendants&quot;</code><br>来控制parent 和child直接的焦点问题<br>2.descendantFocusability有三个属性</p>
+<ol>
+<li>beforeDescendants：viewgroup会优先其子类控件而获取到焦点</li>
+<li>afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点</li>
+<li>blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AndroidTV/">AndroidTV</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-URL参数解析的方式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/13/URL参数解析的方式/" class="article-date">
+  	<time datetime="2016-03-13T03:02:36.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/URL参数解析的方式/">URL参数解析的方式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>URI uri = new URI(url);
+List&lt;NameValuePair&gt; pairList = URLEncodedUtils.parse(uri, &quot;UTF-8&quot;);
+for (NameValuePair pair : pairList) {
+    if (pair.getName().equals(&quot;object&quot;))
+
+        }}
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tip/">tip</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-apk混淆错误" class="article article-type-post" itemscope itemprop="blogPost">
   
