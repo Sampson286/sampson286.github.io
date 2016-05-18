@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -204,7 +204,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外表控件进行切换有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用<br><code>View x=    view.focusSearch(View.FOCUS_UP);
-                System.out.println(&quot;直播向上操作的视图&quot;+x.getId());</code><br>来进行验证响应操作后下一个得到焦点的视图。<br>这是可以给groupView 来设置<br><code>android:descendantFocusability=&quot;afterDescendants&quot;</code><br>来控制parent 和child直接的焦点问题<br>2.descendantFocusability有三个属性</p>
+                System.out.println(&quot;直播向上操作的视图&quot;+x.getId());</code><br>来进行验证响应操作后下一个得到焦点的视图。<br>这是可以给groupView 来设置<br><code>android:descendantFocusability=&quot;afterDescendants&quot;</code><br>来控制parent 和child之间的焦点问题<br>2.descendantFocusability有三个属性</p>
 <ol>
 <li>beforeDescendants：viewgroup会优先其子类控件而获取到焦点</li>
 <li>afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点</li>
