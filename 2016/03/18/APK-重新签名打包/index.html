@@ -4,18 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>AndroidTV焦点问题 | Zyc</title>
+  <title>APK 重新签名打包 | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外面控件进行切换到RecycleView有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用View x=    view.focusSearch(View.">
+  <meta name="description" content="在给生成的apk签名，jdk1.6升级到jdk1.7会出现以下问题：
+1.明明签名了，并且签名检查apk中也有签名文件，但是安装的时候就是提示安装失败，没有签名，解决办法
+将签名命令上加一段话: -digestalg SHA1 -sigalg MD5withRSA 加上后就可以了
+旧：jarsigner -keystore test.keystore -storepass test123 -sig">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AndroidTV焦点问题">
-<meta property="og:url" content="http://yoursite.com/2016/03/15/AndroidTV焦点问题/index.html">
+<meta property="og:title" content="APK 重新签名打包">
+<meta property="og:url" content="http://yoursite.com/2016/03/18/APK-重新签名打包/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description" content="1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外面控件进行切换到RecycleView有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用View x=    view.focusSearch(View.">
-<meta property="og:updated_time" content="2016-05-18T03:42:43.409Z">
+<meta property="og:description" content="在给生成的apk签名，jdk1.6升级到jdk1.7会出现以下问题：
+1.明明签名了，并且签名检查apk中也有签名文件，但是安装的时候就是提示安装失败，没有签名，解决办法
+将签名命令上加一段话: -digestalg SHA1 -sigalg MD5withRSA 加上后就可以了
+旧：jarsigner -keystore test.keystore -storepass test123 -sig">
+<meta property="og:updated_time" content="2016-06-13T06:00:45.948Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AndroidTV焦点问题">
-<meta name="twitter:description" content="1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外面控件进行切换到RecycleView有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用View x=    view.focusSearch(View.">
+<meta name="twitter:title" content="APK 重新签名打包">
+<meta name="twitter:description" content="在给生成的apk签名，jdk1.6升级到jdk1.7会出现以下问题：
+1.明明签名了，并且签名检查apk中也有签名文件，但是安装的时候就是提示安装失败，没有签名，解决办法
+将签名命令上加一段话: -digestalg SHA1 -sigalg MD5withRSA 加上后就可以了
+旧：jarsigner -keystore test.keystore -storepass test123 -sig">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -176,11 +185,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-AndroidTV焦点问题" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-APK-重新签名打包" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/15/AndroidTV焦点问题/" class="article-date">
-  	<time datetime="2016-03-15T03:27:16.000Z" itemprop="datePublished">2016-03-15</time>
+      <a href="/2016/03/18/APK-重新签名打包/" class="article-date">
+  	<time datetime="2016-03-18T05:51:42.000Z" itemprop="datePublished">2016-03-18</time>
 </a>
     </div>
   
@@ -193,7 +202,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      AndroidTV焦点问题
+      APK 重新签名打包
     </h1>
   
 
@@ -202,7 +211,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AndroidTV/">AndroidTV</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apk打包/">apk打包</a></li></ul>
 	</div>
 
         
@@ -213,13 +222,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.android TV 和手机端的主要区别在于焦点响应上。最近在接触Android TV盒子开发的时候，显示数据使用了RecyclerView，在进行某些Item切换到外面的控件是可以正常响应焦点变化。但是有时候从外面控件进行切换到RecycleView有的时候Item焦点得不到。会把焦点传递到RecyclerView上。可以使用<br><code>View x=    view.focusSearch(View.FOCUS_UP);
-                System.out.println(&quot;直播向上操作的视图&quot;+x.getId());</code><br>来进行验证响应操作后下一个得到焦点的视图。<br>这是可以给groupView 来设置<br><code>android:descendantFocusability=&quot;afterDescendants&quot;</code><br>来控制parent 和child之间的焦点问题<br>2.descendantFocusability有三个属性</p>
-<ol>
-<li>beforeDescendants：viewgroup会优先其子类控件而获取到焦点</li>
-<li>afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点</li>
-<li>blocksDescendants：viewgroup会覆盖子类控件而直接获得焦点</li>
-</ol>
+        <p>在给生成的apk签名，jdk1.6升级到jdk1.7会出现以下问题：</p>
+<p>1.明明签名了，并且签名检查apk中也有签名文件，但是安装的时候就是提示安装失败，没有签名，解决办法</p>
+<p>将签名命令上加一段话: -digestalg SHA1 -sigalg MD5withRSA 加上后就可以了</p>
+<p>旧：<code>jarsigner -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code></p>
+<p> 新：<code>jarsigner -digestalg SHA1 -sigalg MD5withRSA -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code><br>这样签名完成后就可以安装成功了。<br>2.以上方法可以解决签名后不能安装成功的问题，但是会发现有警告：</p>
+<p>警告:<br>未提供 -tsa 或 -tsacert, 此 jar 没有时间戳。如果没有时间戳, 则在签名者证书的到期<br>日期 (2063-07-18) 或以后的任何撤销日期之后, 用户可能无法验证此 jar。<br>入有这个警告的话本身对签名没有影响，但是总感觉怪怪的，要想去掉这个警告只要在命令上再加上 -tsa <a href="https://timestamp.geotrust.com/tsa" target="_blank" rel="external">https://timestamp.geotrust.com/tsa</a> 就可以了</p>
+<p>最终命令是：</p>
+<p> <code>jarsigner -digestalg SHA1 -sigalg MD5withRSA -tsa https://timestamp.geotrust.com/tsa -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code></p>
 
       
     </div>
@@ -229,18 +239,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/18/APK-重新签名打包/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          APK 重新签名打包
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/13/URL参数解析的方式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">URL参数解析的方式</div>
+    <a href="/2016/03/15/AndroidTV焦点问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AndroidTV焦点问题</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -275,7 +276,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="AndroidTV焦点问题" data-title="AndroidTV焦点问题" data-url="http://yoursite.com/2016/03/15/AndroidTV焦点问题/"></div>
+	<div class="ds-thread" data-thread-key="APK-重新签名打包" data-title="APK 重新签名打包" data-url="http://yoursite.com/2016/03/18/APK-重新签名打包/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
