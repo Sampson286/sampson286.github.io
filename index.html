@@ -207,11 +207,7 @@
 <p>1.明明签名了，并且签名检查apk中也有签名文件，但是安装的时候就是提示安装失败，没有签名，解决办法</p>
 <p>将签名命令上加一段话: -digestalg SHA1 -sigalg MD5withRSA 加上后就可以了</p>
 <p>旧：<code>jarsigner -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code></p>
-<p> 新：<code>jarsigner -digestalg SHA1 -sigalg MD5withRSA -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code><br>这样签名完成后就可以安装成功了。<br>2.以上方法可以解决签名后不能安装成功的问题，但是会发现有警告：</p>
-<p>警告:<br>未提供 -tsa 或 -tsacert, 此 jar 没有时间戳。如果没有时间戳, 则在签名者证书的到期<br>日期 (2063-07-18) 或以后的任何撤销日期之后, 用户可能无法验证此 jar。<br>入有这个警告的话本身对签名没有影响，但是总感觉怪怪的，要想去掉这个警告只要在命令上再加上 -tsa <a href="https://timestamp.geotrust.com/tsa" target="_blank" rel="external">https://timestamp.geotrust.com/tsa</a> 就可以了</p>
-<p>最终命令是：</p>
-<p> <code>jarsigner -digestalg SHA1 -sigalg MD5withRSA -tsa https://timestamp.geotrust.com/tsa -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code></p>
-
+<p> 新：<code>jarsigner -digestalg SHA1 -sigalg MD5withRSA -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code><br>这样签名完成后就可以安装成功了。
       
     </div>
     
@@ -224,6 +220,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/18/APK-重新签名打包/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
