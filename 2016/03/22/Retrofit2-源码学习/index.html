@@ -4,27 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>URL参数解析的方式 | Zyc</title>
+  <title>Retrofit2 源码学习 | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="URI uri = new URI(url);
-List&amp;lt;NameValuePair&amp;gt; pairList = URLEncodedUtils.parse(uri, &amp;quot;UTF-8&amp;quot;);
-for (NameValuePair pair : pairList) {
-    if (pair.getName().equals(&amp;quot;object&amp;quot;))">
+  <meta name="description" content="body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interface GitHubService">
 <meta property="og:type" content="article">
-<meta property="og:title" content="URL参数解析的方式">
-<meta property="og:url" content="http://yoursite.com/2016/03/13/URL参数解析的方式/index.html">
+<meta property="og:title" content="Retrofit2 源码学习">
+<meta property="og:url" content="http://yoursite.com/2016/03/22/Retrofit2-源码学习/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description" content="URI uri = new URI(url);
-List&amp;lt;NameValuePair&amp;gt; pairList = URLEncodedUtils.parse(uri, &amp;quot;UTF-8&amp;quot;);
-for (NameValuePair pair : pairList) {
-    if (pair.getName().equals(&amp;quot;object&amp;quot;))">
-<meta property="og:updated_time" content="2016-04-26T03:10:52.334Z">
+<meta property="og:description" content="body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interface GitHubService">
+<meta property="og:updated_time" content="2016-06-23T07:01:55.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="URL参数解析的方式">
-<meta name="twitter:description" content="URI uri = new URI(url);
-List&amp;lt;NameValuePair&amp;gt; pairList = URLEncodedUtils.parse(uri, &amp;quot;UTF-8&amp;quot;);
-for (NameValuePair pair : pairList) {
-    if (pair.getName().equals(&amp;quot;object&amp;quot;))">
+<meta name="twitter:title" content="Retrofit2 源码学习">
+<meta name="twitter:description" content="body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interface GitHubService">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -185,11 +176,11 @@ for (NameValuePair pair : pairList) {
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-URL参数解析的方式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Retrofit2-源码学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/13/URL参数解析的方式/" class="article-date">
-  	<time datetime="2016-03-13T03:02:36.000Z" itemprop="datePublished">2016-03-13</time>
+      <a href="/2016/03/22/Retrofit2-源码学习/" class="article-date">
+  	<time datetime="2016-03-22T08:28:59.000Z" itemprop="datePublished">2016-03-22</time>
 </a>
     </div>
   
@@ -202,7 +193,7 @@ for (NameValuePair pair : pairList) {
         
   
     <h1 class="article-title" itemprop="name">
-      URL参数解析的方式
+      Retrofit2 源码学习
     </h1>
   
 
@@ -211,7 +202,7 @@ for (NameValuePair pair : pairList) {
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tip/">tip</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
 	</div>
 
         
@@ -222,13 +213,8 @@ for (NameValuePair pair : pairList) {
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>URI uri = new URI(url);
-List&lt;NameValuePair&gt; pairList = URLEncodedUtils.parse(uri, &quot;UTF-8&quot;);
-for (NameValuePair pair : pairList) {
-    if (pair.getName().equals(&quot;object&quot;))
+        <html><br><head><br>  <basefont face="微软雅黑" size="2"><br>  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><br>  <meta name="exporter-version" content="Evernote Windows/302292 (zh-CN); Windows/10.0.10240 (Win64);"><br>  <style><br>    body, td {<br>      font-family: 微软雅黑;<br>      font-size: 10pt;<br>    }<br>  </style><br></head><br><body><br><a name="312"><br><br><div><br><br><span><div>最近在工作中了解到网络请求框架<a href="http://square.github.io/retrofit/" target="_blank" rel="external">Retrofit</a>，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。</div><ol><li>Retrofit的使用   </li></ol><ul><li>首先需要创建一个用于表示Http请求的接口</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>public interface GitHubService {</div><div>    @GET(&quot;users/{user}/repos&quot;)//执行资源的地址后缀</div><div>    Call&lt;List&lt;User&gt;&gt; listRepos(@Path(&quot;user&quot;) String user);</div><div>}</div></div><ul><li>再接着需要通过<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">Retrofit</span>类来创建一个实现了<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">GitHubService</span>接口的代理对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Retrofit retrofit = new Retrofit.Builder()<br><br>    .baseUrl(&quot;<a href="https://api.github.com/&amp;quot" target="_blank" rel="external">https://api.github.com/&amp;quot</a>;)</div><div>    .build();</div><div>GitHubService service = retrofit.create(GitHubService.class);</div></div><ul><li>得到请求服务的请求对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Call&lt;List&lt;User&gt;&gt; call=service.listRepos(&quot;zhaoyongchao&quot;);//得到请求对象</div><div>call.execute();//同步请求</div><div>//发起异步请求</div><div>call.enqueue(new Callback&lt;List&lt;User&gt;&gt;() {</div><div>    @Override</div><div>    public void onResponse(Call&lt;List&lt;User&gt;&gt; call, Response&lt;List&lt;User&gt;&gt; response) {</div><div>        Log.i(TAG,response.body().get(0).getName());</div><div>    }</div><div><br></div><div>    @Override</div><div>    public void onFailure(Call&lt;List&lt;User&gt;&gt; call, Throwable t) {</div><div>        Log.i(TAG,&quot;获取失败onFailure&quot;+t.getMessage());</div><div>    }</div><div>});</div></div><ul><li>   </li></ul></span><br></div></a></body></html>
 
-        }}
-</code></pre>
       
     </div>
     
@@ -237,18 +223,9 @@ for (NameValuePair pair : pairList) {
     
 <nav id="article-nav">
   
-    <a href="/2016/03/15/AndroidTV焦点问题/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          AndroidTV焦点问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/12/apk混淆错误/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">apk混淆错误</div>
+    <a href="/2016/03/18/APK-重新签名打包/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">APK 重新签名打包</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -283,7 +260,7 @@ for (NameValuePair pair : pairList) {
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="URL参数解析的方式" data-title="URL参数解析的方式" data-url="http://yoursite.com/2016/03/13/URL参数解析的方式/"></div>
+	<div class="ds-thread" data-thread-key="Retrofit2-源码学习" data-title="Retrofit2 源码学习" data-url="http://yoursite.com/2016/03/22/Retrofit2-源码学习/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
