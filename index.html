@@ -206,7 +206,7 @@
         <ul>
 <li>EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。</li>
 <li>首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。</li>
-<li><code>boolean touchable = event.getX() &gt; (getWidth() - getTotalPaddingRight())&amp;&amp; (event.getX() &lt; ((getWidth() - getPaddingRight())));</code></li>
+<li><code>boolean touchable = event.getX() &gt; (getWidth() - getTotalPaddingRight())&amp;&amp; (event.getX() &lt; ((getWidth() - getPaddingRight())));<code></code></code></li>
 <li>所以重写onTouchEvent方法，我需要根据当前输入类型来判断是否需要明暗文切换</li>
 <li><pre>public boolean onTouchEvent(MotionEvent event) {
       if (event.getAction() == MotionEvent.ACTION_UP) {
