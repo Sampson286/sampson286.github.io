@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Retrofit2 源码学习 | Zyc</title>
+  <title>EditText添加drawableXXX的点击事件 | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Evernote Export            body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interfa">
+  <meta name="description" content="EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。
+首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。
+`boolean touchable = e">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Retrofit2 源码学习">
-<meta property="og:url" content="http://yoursite.com/2016/03/22/Retrofit2-源码学习/index.html">
+<meta property="og:title" content="EditText添加drawableXXX的点击事件">
+<meta property="og:url" content="http://yoursite.com/2016/03/20/EditText添加drawableXXX的点击事件/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description" content="Evernote Export            body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interfa">
-<meta property="og:updated_time" content="2016-06-23T07:39:39.545Z">
+<meta property="og:description" content="EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。
+首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。
+`boolean touchable = e">
+<meta property="og:updated_time" content="2016-08-29T03:38:14.322Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Retrofit2 源码学习">
-<meta name="twitter:description" content="Evernote Export            body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interfa">
+<meta name="twitter:title" content="EditText添加drawableXXX的点击事件">
+<meta name="twitter:description" content="EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。
+首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。
+`boolean touchable = e">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -110,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AndroidTV/" style="font-size: 10px;">AndroidTV</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/apk打包/" style="font-size: 10px;">apk打包</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jenkins打包/" style="font-size: 10px;">jenkins打包</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a>
+						<a href="/tags/AndroidTV/" style="font-size: 10px;">AndroidTV</a> <a href="/tags/Android自定义控件/" style="font-size: 10px;">Android自定义控件</a> <a href="/tags/apk打包/" style="font-size: 10px;">apk打包</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jenkins打包/" style="font-size: 10px;">jenkins打包</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a>
 					</div>
 				</section>
 				
@@ -176,11 +182,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Retrofit2-源码学习" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-EditText添加drawableXXX的点击事件" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/22/Retrofit2-源码学习/" class="article-date">
-  	<time datetime="2016-03-22T08:28:59.000Z" itemprop="datePublished">2016-03-22</time>
+      <a href="/2016/03/20/EditText添加drawableXXX的点击事件/" class="article-date">
+  	<time datetime="2016-03-20T02:46:33.000Z" itemprop="datePublished">2016-03-20</time>
 </a>
     </div>
   
@@ -193,7 +199,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Retrofit2 源码学习
+      EditText添加drawableXXX的点击事件
     </h1>
   
 
@@ -202,7 +208,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android自定义控件/">Android自定义控件</a></li></ul>
 	</div>
 
         
@@ -213,8 +219,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <html><br><head><br>  <title>Evernote Export</title><br>  <basefont face="微软雅黑" size="2"><br>  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><br>  <meta name="exporter-version" content="Evernote Windows/302292 (zh-CN); Windows/10.0.10240 (Win64);"><br>  <style><br>    body, td {<br>      font-family: 微软雅黑;<br>      font-size: 10pt;<br>    }<br>  </style><br></head><br><body><br><a name="312"><br><br><div><br><span><div>最近在工作中了解到网络请求框架<a href="http://square.github.io/retrofit/" target="_blank" rel="external">Retrofit</a>，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。</div><ol><li>Retrofit的使用   </li></ol><ul><li>首先需要创建一个用于表示Http请求的接口</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>public interface GitHubService {</div><div>    @GET(&quot;users/{user}/repos&quot;)//执行资源的地址后缀</div><div>    Call&lt;List&lt;User&gt;&gt; listRepos(@Path(&quot;user&quot;) String user);</div><div>}</div></div><ul><li>再接着需要通过<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">Retrofit</span>类来创建一个实现了<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">GitHubService</span>接口的代理对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Retrofit retrofit = new Retrofit.Builder()<br><br>    .baseUrl(&quot;<a href="https://api.github.com/&amp;quot" target="_blank" rel="external">https://api.github.com/&amp;quot</a>;)</div><div>    .build();</div><div>GitHubService service = retrofit.create(GitHubService.class);</div></div><ul><li>得到请求服务的请求对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Call&lt;List&lt;User&gt;&gt; call=service.listRepos(&quot;zhaoyongchao&quot;);//得到请求对象</div><div>call.execute();//同步请求</div><div>//发起异步请求</div><div>call.enqueue(new Callback&lt;List&lt;User&gt;&gt;() {</div><div>    @Override</div><div>    public void onResponse(Call&lt;List&lt;User&gt;&gt; call, Response&lt;List&lt;User&gt;&gt; response) {</div><div>        Log.i(TAG,response.body().get(0).getName());</div><div>    }</div><div>    @Override</div><div>    public void onFailure(Call&lt;List&lt;User&gt;&gt; call, Throwable t) {</div><div>        Log.i(TAG,&quot;获取失败onFailure&quot;+t.getMessage());</div><div>    }</div><div>});</div></div><ul><li>   </li></ul></span><br></div></a></body></html>
+        <ul>
+<li>EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。</li>
+<li>首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。</li>
+<li>`boolean touchable = event.getX() &gt; (getWidth() - getTotalPaddingRight())<pre><code>&amp;&amp; (event.getX() &lt; ((getWidth() - getPaddingRight())));`
+</code></pre></li>
+<li>所以重写onTouchEvent方法，我需要根据当前输入类型来判断是否需要明暗文切换</li>
+<li><pre>public boolean onTouchEvent(MotionEvent event) {
+      if (event.getAction() == MotionEvent.ACTION_UP) {
+          if (getCompoundDrawables()[2] != null) {
 
+              boolean touchable = event.getX() > (getWidth() - getTotalPaddingRight())
+                      && (event.getX() < ((getWidth() - getPaddingRight())));
+
+              if (touchable) {
+                  if(getInputType()==InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD+InputType.TYPE_CLASS_TEXT){
+                      setCompoundDrawables(null, null, mRightDrawableSelect, null);
+                      setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                      //view.setText(view.getText().toString());
+                  }else{
+                      setCompoundDrawables(null, null, mRightDrawableUnSelect, null);
+                      setInputType(InputType.TYPE_CLASS_TEXT |InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                  }
+                  setSelection(getText().length());
+              }
+          }
+      }
+
+      return super.onTouchEvent(event);
+  } </pre></li>
+<li>最好还是通过接口的形式让外部传入相应的点击事件。</li>
+</ul>
 
       
     </div>
@@ -223,15 +258,6 @@
   
     
 <nav id="article-nav">
-  
-    <a href="/2016/08/29/EditText添加drawableXXX的点击事件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
   
     <a href="/2016/03/18/APK-重新签名打包/" id="article-nav-older" class="article-nav-link-wrap">
@@ -270,7 +296,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Retrofit2-源码学习" data-title="Retrofit2 源码学习" data-url="http://yoursite.com/2016/03/22/Retrofit2-源码学习/"></div>
+	<div class="ds-thread" data-thread-key="EditText添加drawableXXX的点击事件" data-title="EditText添加drawableXXX的点击事件" data-url="http://yoursite.com/2016/03/20/EditText添加drawableXXX的点击事件/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
