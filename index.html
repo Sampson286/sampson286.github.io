@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -177,6 +177,116 @@
 
       <div class="body-wrap">
   
+    <article id="post-EditText添加drawableXXX的点击事件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/29/EditText添加drawableXXX的点击事件/" class="article-date">
+  	<time datetime="2016-08-29T02:46:33.977Z" itemprop="datePublished">2016-08-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&lt;!DOCTYPE html&gt;</p>
+<p><html></html></p>
+<p><head></head></p>
+<p><title>EditText添加drawableXXX的点击事件</title></p>
+<p><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></p>
+<p><style type="text/css"><br>/<em> GitHub stylesheet for MarkdownPad (<a href="http://markdownpad.com">http://markdownpad.com</a>) </em>/<br>/<em> Author: Nicolas Hery - <a href="http://nicolashery.com">http://nicolashery.com</a> </em>/<br>/<em> Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff </em>/<br>/<em> Source: <a href="https://github.com/nicolahery/markdownpad-github">https://github.com/nicolahery/markdownpad-github</a> </em>/</p>
+<p>/<em> RESET<br>=============================================================================</em>/</p>
+<p>html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {<br>  margin: 0;<br>  padding: 0;<br>  border: 0;<br>}</p>
+<p>/<em> BODY<br>=============================================================================</em>/</p>
+<p>body {<br>  font-family: Helvetica, arial, freesans, clean, sans-serif;<br>  font-size: 14px;<br>  line-height: 1.6;<br>  color: #333;<br>  background-color: #fff;<br>  padding: 20px;<br>  max-width: 960px;<br>  margin: 0 auto;<br>}</p>
+<p>body&gt;*:first-child {<br>  margin-top: 0 !important;<br>}</p>
+<p>body&gt;*:last-child {<br>  margin-bottom: 0 !important;<br>}</p>
+<p>/<em> BLOCKS<br>=============================================================================</em>/</p>
+<p>p, blockquote, ul, ol, dl, table, pre {<br>  margin: 15px 0;<br>}</p>
+<p>/<em> HEADERS<br>=============================================================================</em>/</p>
+<p>h1, h2, h3, h4, h5, h6 {<br>  margin: 20px 0 10px;<br>  padding: 0;<br>  font-weight: bold;<br>  -webkit-font-smoothing: antialiased;<br>}</p>
+<p>h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {<br>  font-size: inherit;<br>}</p>
+<p>h1 {<br>  font-size: 28px;<br>  color: #000;<br>}</p>
+<p>h2 {<br>  font-size: 24px;<br>  border-bottom: 1px solid #ccc;<br>  color: #000;<br>}</p>
+<p>h3 {<br>  font-size: 18px;<br>}</p>
+<p>h4 {<br>  font-size: 16px;<br>}</p>
+<p>h5 {<br>  font-size: 14px;<br>}</p>
+<p>h6 {<br>  color: #777;<br>  font-size: 14px;<br>}</p>
+<p>body&gt;h2:first-child, body&gt;h1:first-child, body&gt;h1:first-child+h2, body&gt;h3:first-child, body&gt;h4:first-child, body&gt;h5:first-child, body&gt;h6:first-child {<br>  margin-top: 0;<br>  padding-top: 0;<br>}</p>
+<p>a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {<br>  margin-top: 0;<br>  padding-top: 0;<br>}</p>
+<p>h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {<br>  margin-top: 10px;<br>}</p>
+<p>/<em> LINKS<br>=============================================================================</em>/</p>
+<p>a {<br>  color: #4183C4;<br>  text-decoration: none;<br>}</p>
+<p>a:hover {<br>  text-decoration: underline;<br>}</p>
+<p>/<em> LISTS<br>=============================================================================</em>/</p>
+<p>ul, ol {<br>  padding-left: 30px;<br>}</p>
+<p>ul li &gt; :first-child,<br>ol li &gt; :first-child,<br>ul li ul:first-of-type,<br>ol li ol:first-of-type,<br>ul li ol:first-of-type,<br>ol li ul:first-of-type {<br>  margin-top: 0px;<br>}</p>
+<p>ul ul, ul ol, ol ol, ol ul {<br>  margin-bottom: 0;<br>}</p>
+<p>dl {<br>  padding: 0;<br>}</p>
+<p>dl dt {<br>  font-size: 14px;<br>  font-weight: bold;<br>  font-style: italic;<br>  padding: 0;<br>  margin: 15px 0 5px;<br>}</p>
+<p>dl dt:first-child {<br>  padding: 0;<br>}</p>
+<p>dl dt&gt;:first-child {<br>  margin-top: 0px;<br>}</p>
+<p>dl dt&gt;:last-child {<br>  margin-bottom: 0px;<br>}</p>
+<p>dl dd {<br>  margin: 0 0 15px;<br>  padding: 0 15px;<br>}</p>
+<p>dl dd&gt;:first-child {<br>  margin-top: 0px;<br>}</p>
+<p>dl dd&gt;:last-child {<br>  margin-bottom: 0px;<br>}</p>
+<p>/<em> CODE<br>=============================================================================</em>/</p>
+<p>pre, code, tt {<br>  font-size: 12px;<br>  font-family: Consolas, “Liberation Mono”, Courier, monospace;<br>}</p>
+<p>code, tt {<br>  margin: 0 0px;<br>  padding: 0px 0px;<br>  white-space: nowrap;<br>  border: 1px solid #eaeaea;<br>  background-color: #f8f8f8;<br>  border-radius: 3px;<br>}</p>
+<p>pre&gt;code {<br>  margin: 0;<br>  padding: 0;<br>  white-space: pre;<br>  border: none;<br>  background: transparent;<br>}</p>
+<p>pre {<br>  background-color: #f8f8f8;<br>  border: 1px solid #ccc;<br>  font-size: 13px;<br>  line-height: 19px;<br>  overflow: auto;<br>  padding: 6px 10px;<br>  border-radius: 3px;<br>}</p>
+<p>pre code, pre tt {<br>  background-color: transparent;<br>  border: none;<br>}</p>
+<p>kbd {<br>    -moz-border-bottom-colors: none;<br>    -moz-border-left-colors: none;<br>    -moz-border-right-colors: none;<br>    -moz-border-top-colors: none;<br>    background-color: #DDDDDD;<br>    background-image: linear-gradient(#F1F1F1, #DDDDDD);<br>    background-repeat: repeat-x;<br>    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;<br>    border-image: none;<br>    border-radius: 2px 2px 2px 2px;<br>    border-style: solid;<br>    border-width: 1px;<br>    font-family: “Helvetica Neue”,Helvetica,Arial,sans-serif;<br>    line-height: 10px;<br>    padding: 1px 4px;<br>}</p>
+<p>/<em> QUOTES<br>=============================================================================</em>/</p>
+<p>blockquote {<br>  border-left: 4px solid #DDD;<br>  padding: 0 15px;<br>  color: #777;<br>}</p>
+<p>blockquote&gt;:first-child {<br>  margin-top: 0px;<br>}</p>
+<p>blockquote&gt;:last-child {<br>  margin-bottom: 0px;<br>}</p>
+<p>/<em> HORIZONTAL RULES<br>=============================================================================</em>/</p>
+<p>hr {<br>  clear: both;<br>  margin: 15px 0;<br>  height: 0px;<br>  overflow: hidden;<br>  border: none;<br>  background: transparent;<br>  border-bottom: 4px solid #ddd;<br>  padding: 0;<br>}</p>
+<p>/<em> TABLES<br>=============================================================================</em>/</p>
+<p>table th {<br>  font-weight: bold;<br>}</p>
+<p>table th, table td {<br>  border: 1px solid #ccc;<br>  padding: 6px 13px;<br>}</p>
+<p>table tr {<br>  border-top: 1px solid #ccc;<br>  background-color: #fff;<br>}</p>
+<p>table tr:nth-child(2n) {<br>  background-color: #f8f8f8;<br>}</p>
+<p>/<em> IMAGES<br>=============================================================================</em>/</p>
+<p>img {<br>  max-width: 100%<br>}<br></style></p>
+<p><base href="file:\\\D:\GitHub\source\_posts\"><br></p>
+<p><body></body></p>
+<p><hr></p>
+<p></p><p>title: EditText添加drawableXXX的点击事件<br>date: 2016-03-20 10:46:33</p><p></p>
+<p></p><h2>tags: Android自定义控件</h2><p></p>
+<ul><br><li>EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。</li><br><li>首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。</li><br><li><br><p><code>boolean touchable = event.getX() &gt; (getWidth() - getTotalPaddingRight())<br>                    &amp;&amp; (event.getX() &lt; ((getWidth() - getPaddingRight())));</code></p><br></li><br><li><br>所以重写onTouchEvent方法，我需要根据当前输入类型来判断是否需要明暗文切换：<br><br><pre><code>public boolean onTouchEvent(MotionEvent event) {<br>        if (event.getAction() == MotionEvent.ACTION_UP) {<br>            if (getCompoundDrawables()[2] != null) {<br><br>                boolean touchable = event.getX() &gt; (getWidth() - getTotalPaddingRight())<br>                        &amp;&amp; (event.getX() &lt; ((getWidth() - getPaddingRight())));<br><br>                if (touchable) {<br>                    if(getInputType()==InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD+InputType.TYPE_CLASS_TEXT){<br>                        setCompoundDrawables(null, null, mRightDrawableSelect, null);<br>                        setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);<br>                        //view.setText(view.getText().toString());<br>                    }else{<br>                        setCompoundDrawables(null, null, mRightDrawableUnSelect, null);<br>                        setInputType(InputType.TYPE_CLASS_TEXT |InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);<br>                    }<br>                    setSelection(getText().length());<br>                }<br>            }<br>        }<br><br>        return super.onTouchEvent(event);<br>    }<br></code></pre><br></li><br><li>最好还是通过接口的形式让外部传入相应的点击事件。</li><br></ul>
+
+<p><br><br><!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) --></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Retrofit2-源码学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -203,7 +313,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <html><br><head><br>  <basefont face="微软雅黑" size="2"><br>  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><br>  <meta name="exporter-version" content="Evernote Windows/302292 (zh-CN); Windows/10.0.10240 (Win64);"><br>  <style><br>    body, td {<br>      font-family: 微软雅黑;<br>      font-size: 10pt;<br>    }<br>  </style><br></head><br><body><br><a name="312"><br><br><div><br><br><span><div>最近在工作中了解到网络请求框架<a href="http://square.github.io/retrofit/" target="_blank" rel="external">Retrofit</a>，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。</div><ol><li>Retrofit的使用   </li></ol><ul><li>首先需要创建一个用于表示Http请求的接口</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>public interface GitHubService {</div><div>    @GET(&quot;users/{user}/repos&quot;)//执行资源的地址后缀</div><div>    Call&lt;List&lt;User&gt;&gt; listRepos(@Path(&quot;user&quot;) String user);</div><div>}</div></div><ul><li>再接着需要通过<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">Retrofit</span>类来创建一个实现了<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">GitHubService</span>接口的代理对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Retrofit retrofit = new Retrofit.Builder()<br><br>    .baseUrl(&quot;<a href="https://api.github.com/&amp;quot" target="_blank" rel="external">https://api.github.com/&amp;quot</a>;)</div><div>    .build();</div><div>GitHubService service = retrofit.create(GitHubService.class);</div></div><ul><li>得到请求服务的请求对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Call&lt;List&lt;User&gt;&gt; call=service.listRepos(&quot;zhaoyongchao&quot;);//得到请求对象</div><div>call.execute();//同步请求</div><div>//发起异步请求</div><div>call.enqueue(new Callback&lt;List&lt;User&gt;&gt;() {</div><div>    @Override</div><div>    public void onResponse(Call&lt;List&lt;User&gt;&gt; call, Response&lt;List&lt;User&gt;&gt; response) {</div><div>        Log.i(TAG,response.body().get(0).getName());</div><div>    }</div><div><br></div><div>    @Override</div><div>    public void onFailure(Call&lt;List&lt;User&gt;&gt; call, Throwable t) {</div><div>        Log.i(TAG,&quot;获取失败onFailure&quot;+t.getMessage());</div><div>    }</div><div>});</div></div><ul><li>   </li></ul></span><br></div></a></body></html>
+        <html><br><head><br>  <title>Evernote Export</title><br>  <basefont face="微软雅黑" size="2"><br>  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><br>  <meta name="exporter-version" content="Evernote Windows/302292 (zh-CN); Windows/10.0.10240 (Win64);"><br>  <style><br>    body, td {<br>      font-family: 微软雅黑;<br>      font-size: 10pt;<br>    }<br>  </style><br></head><br><body><br><a name="312"><br><br><div><br><span><div>最近在工作中了解到网络请求框架<a href="http://square.github.io/retrofit/" target="_blank" rel="external">Retrofit</a>，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。</div><ol><li>Retrofit的使用   </li></ol><ul><li>首先需要创建一个用于表示Http请求的接口</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>public interface GitHubService {</div><div>    @GET(&quot;users/{user}/repos&quot;)//执行资源的地址后缀</div><div>    Call&lt;List&lt;User&gt;&gt; listRepos(@Path(&quot;user&quot;) String user);</div><div>}</div></div><ul><li>再接着需要通过<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">Retrofit</span>类来创建一个实现了<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">GitHubService</span>接口的代理对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Retrofit retrofit = new Retrofit.Builder()<br><br>    .baseUrl(&quot;<a href="https://api.github.com/&amp;quot" target="_blank" rel="external">https://api.github.com/&amp;quot</a>;)</div><div>    .build();</div><div>GitHubService service = retrofit.create(GitHubService.class);</div></div><ul><li>得到请求服务的请求对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Call&lt;List&lt;User&gt;&gt; call=service.listRepos(&quot;zhaoyongchao&quot;);//得到请求对象</div><div>call.execute();//同步请求</div><div>//发起异步请求</div><div>call.enqueue(new Callback&lt;List&lt;User&gt;&gt;() {</div><div>    @Override</div><div>    public void onResponse(Call&lt;List&lt;User&gt;&gt; call, Response&lt;List&lt;User&gt;&gt; response) {</div><div>        Log.i(TAG,response.body().get(0).getName());</div><div>    }</div><div>    @Override</div><div>    public void onFailure(Call&lt;List&lt;User&gt;&gt; call, Throwable t) {</div><div>        Log.i(TAG,&quot;获取失败onFailure&quot;+t.getMessage());</div><div>    }</div><div>});</div></div><ul><li>   </li></ul></span><br></div></a></body></html>
+
 
       
     </div>

@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Retrofit2 源码学习 | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interface GitHubService">
+  <meta name="description" content="Evernote Export            body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interfa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Retrofit2 源码学习">
 <meta property="og:url" content="http://yoursite.com/2016/03/22/Retrofit2-源码学习/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description" content="body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interface GitHubService">
-<meta property="og:updated_time" content="2016-06-23T07:01:55.545Z">
+<meta property="og:description" content="Evernote Export            body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interfa">
+<meta property="og:updated_time" content="2016-06-23T07:39:39.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Retrofit2 源码学习">
-<meta name="twitter:description" content="body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interface GitHubService">
+<meta name="twitter:description" content="Evernote Export            body, td {      font-family: 微软雅黑;      font-size: 10pt;    }  最近在工作中了解到网络请求框架Retrofit，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。Retrofit的使用   首先需要创建一个用于表示Http请求的接口public interfa">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -71,7 +71,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -213,7 +213,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <html><br><head><br>  <basefont face="微软雅黑" size="2"><br>  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><br>  <meta name="exporter-version" content="Evernote Windows/302292 (zh-CN); Windows/10.0.10240 (Win64);"><br>  <style><br>    body, td {<br>      font-family: 微软雅黑;<br>      font-size: 10pt;<br>    }<br>  </style><br></head><br><body><br><a name="312"><br><br><div><br><br><span><div>最近在工作中了解到网络请求框架<a href="http://square.github.io/retrofit/" target="_blank" rel="external">Retrofit</a>，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。</div><ol><li>Retrofit的使用   </li></ol><ul><li>首先需要创建一个用于表示Http请求的接口</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>public interface GitHubService {</div><div>    @GET(&quot;users/{user}/repos&quot;)//执行资源的地址后缀</div><div>    Call&lt;List&lt;User&gt;&gt; listRepos(@Path(&quot;user&quot;) String user);</div><div>}</div></div><ul><li>再接着需要通过<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">Retrofit</span>类来创建一个实现了<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">GitHubService</span>接口的代理对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Retrofit retrofit = new Retrofit.Builder()<br><br>    .baseUrl(&quot;<a href="https://api.github.com/&amp;quot" target="_blank" rel="external">https://api.github.com/&amp;quot</a>;)</div><div>    .build();</div><div>GitHubService service = retrofit.create(GitHubService.class);</div></div><ul><li>得到请求服务的请求对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Call&lt;List&lt;User&gt;&gt; call=service.listRepos(&quot;zhaoyongchao&quot;);//得到请求对象</div><div>call.execute();//同步请求</div><div>//发起异步请求</div><div>call.enqueue(new Callback&lt;List&lt;User&gt;&gt;() {</div><div>    @Override</div><div>    public void onResponse(Call&lt;List&lt;User&gt;&gt; call, Response&lt;List&lt;User&gt;&gt; response) {</div><div>        Log.i(TAG,response.body().get(0).getName());</div><div>    }</div><div><br></div><div>    @Override</div><div>    public void onFailure(Call&lt;List&lt;User&gt;&gt; call, Throwable t) {</div><div>        Log.i(TAG,&quot;获取失败onFailure&quot;+t.getMessage());</div><div>    }</div><div>});</div></div><ul><li>   </li></ul></span><br></div></a></body></html>
+        <html><br><head><br>  <title>Evernote Export</title><br>  <basefont face="微软雅黑" size="2"><br>  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"><br>  <meta name="exporter-version" content="Evernote Windows/302292 (zh-CN); Windows/10.0.10240 (Win64);"><br>  <style><br>    body, td {<br>      font-family: 微软雅黑;<br>      font-size: 10pt;<br>    }<br>  </style><br></head><br><body><br><a name="312"><br><br><div><br><span><div>最近在工作中了解到网络请求框架<a href="http://square.github.io/retrofit/" target="_blank" rel="external">Retrofit</a>，通过官方的引导文档，先了解一下Retrofit的使用，再跟深入的学习。</div><ol><li>Retrofit的使用   </li></ol><ul><li>首先需要创建一个用于表示Http请求的接口</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>public interface GitHubService {</div><div>    @GET(&quot;users/{user}/repos&quot;)//执行资源的地址后缀</div><div>    Call&lt;List&lt;User&gt;&gt; listRepos(@Path(&quot;user&quot;) String user);</div><div>}</div></div><ul><li>再接着需要通过<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">Retrofit</span>类来创建一个实现了<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">GitHubService</span>接口的代理对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Retrofit retrofit = new Retrofit.Builder()<br><br>    .baseUrl(&quot;<a href="https://api.github.com/&amp;quot" target="_blank" rel="external">https://api.github.com/&amp;quot</a>;)</div><div>    .build();</div><div>GitHubService service = retrofit.create(GitHubService.class);</div></div><ul><li>得到请求服务的请求对象</li></ul><div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;"><div>Call&lt;List&lt;User&gt;&gt; call=service.listRepos(&quot;zhaoyongchao&quot;);//得到请求对象</div><div>call.execute();//同步请求</div><div>//发起异步请求</div><div>call.enqueue(new Callback&lt;List&lt;User&gt;&gt;() {</div><div>    @Override</div><div>    public void onResponse(Call&lt;List&lt;User&gt;&gt; call, Response&lt;List&lt;User&gt;&gt; response) {</div><div>        Log.i(TAG,response.body().get(0).getName());</div><div>    }</div><div>    @Override</div><div>    public void onFailure(Call&lt;List&lt;User&gt;&gt; call, Throwable t) {</div><div>        Log.i(TAG,&quot;获取失败onFailure&quot;+t.getMessage());</div><div>    }</div><div>});</div></div><ul><li>   </li></ul></span><br></div></a></body></html>
+
 
       
     </div>
@@ -222,6 +223,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/08/29/EditText添加drawableXXX的点击事件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2016/03/18/APK-重新签名打包/" id="article-nav-older" class="article-nav-link-wrap">
