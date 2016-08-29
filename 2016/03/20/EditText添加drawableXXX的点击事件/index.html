@@ -8,20 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。
 首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。
-`boolean touchable = e">
+boolean touchable = ev">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EditText添加drawableXXX的点击事件">
 <meta property="og:url" content="http://yoursite.com/2016/03/20/EditText添加drawableXXX的点击事件/index.html">
 <meta property="og:site_name" content="Zyc">
 <meta property="og:description" content="EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。
 首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。
-`boolean touchable = e">
-<meta property="og:updated_time" content="2016-08-29T03:38:14.322Z">
+boolean touchable = ev">
+<meta property="og:updated_time" content="2016-08-29T03:41:09.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EditText添加drawableXXX的点击事件">
 <meta name="twitter:description" content="EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。
 首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。
-`boolean touchable = e">
+boolean touchable = ev">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -77,7 +77,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -222,8 +222,7 @@
         <ul>
 <li>EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。</li>
 <li>首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。</li>
-<li>`boolean touchable = event.getX() &gt; (getWidth() - getTotalPaddingRight())<pre><code>&amp;&amp; (event.getX() &lt; ((getWidth() - getPaddingRight())));`
-</code></pre></li>
+<li><pre>boolean touchable = event.getX() &gt; (getWidth() - getTotalPaddingRight())&amp;&amp; (event.getX() &lt; ((getWidth() - getPaddingRight())));<pre></pre></pre></li>
 <li>所以重写onTouchEvent方法，我需要根据当前输入类型来判断是否需要明暗文切换</li>
 <li><pre>public boolean onTouchEvent(MotionEvent event) {
       if (event.getAction() == MotionEvent.ACTION_UP) {
