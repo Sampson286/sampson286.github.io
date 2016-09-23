@@ -4,24 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>EditText添加drawableXXX的点击事件 | Zyc</title>
+  <title>Activity启动过程分析 | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。
-首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。
-boolean touchable = ev">
+  <meta name="description" content="public ActivityResult execStartActivity(
+        Context who, IBinder contextThread, IBinder token, Activity target,
+        Intent intent, int requestCode, Bundle options) {
+    IApplicationThread wh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="EditText添加drawableXXX的点击事件">
-<meta property="og:url" content="http://yoursite.com/2016/03/20/EditText添加drawableXXX的点击事件/index.html">
+<meta property="og:title" content="Activity启动过程分析">
+<meta property="og:url" content="http://yoursite.com/2016/09/23/Activity启动过程分析/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description" content="EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。
-首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。
-boolean touchable = ev">
-<meta property="og:updated_time" content="2016-08-29T03:48:38.942Z">
+<meta property="og:description" content="public ActivityResult execStartActivity(
+        Context who, IBinder contextThread, IBinder token, Activity target,
+        Intent intent, int requestCode, Bundle options) {
+    IApplicationThread wh">
+<meta property="og:updated_time" content="2016-09-23T08:30:29.113Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EditText添加drawableXXX的点击事件">
-<meta name="twitter:description" content="EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。
-首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。
-boolean touchable = ev">
+<meta name="twitter:title" content="Activity启动过程分析">
+<meta name="twitter:description" content="public ActivityResult execStartActivity(
+        Context who, IBinder contextThread, IBinder token, Activity target,
+        Intent intent, int requestCode, Bundle options) {
+    IApplicationThread wh">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -182,11 +185,11 @@ boolean touchable = ev">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-EditText添加drawableXXX的点击事件" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Activity启动过程分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/20/EditText添加drawableXXX的点击事件/" class="article-date">
-  	<time datetime="2016-03-20T02:46:33.000Z" itemprop="datePublished">2016-03-20</time>
+      <a href="/2016/09/23/Activity启动过程分析/" class="article-date">
+  	<time datetime="2016-09-23T08:29:57.000Z" itemprop="datePublished">2016-09-23</time>
 </a>
     </div>
   
@@ -199,7 +202,7 @@ boolean touchable = ev">
         
   
     <h1 class="article-title" itemprop="name">
-      EditText添加drawableXXX的点击事件
+      Activity启动过程分析
     </h1>
   
 
@@ -207,10 +210,6 @@ boolean touchable = ev">
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android自定义控件/">Android自定义控件</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -219,37 +218,101 @@ boolean touchable = ev">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>EditText提供了drawableXXX属性来设置控件的个位置的图片显示，但是没有提供响应的点击事件处理。</li>
-<li>首先要考虑的问题是如何在java代码中获取点击的范围是否在图标范围内。getTotalPaddingXXX方法提供了包含drawableXXX在内的距离，而getPaddingXXX返回视图距响应方向的距离。所以就可以判断是否在图标内点击。</li>
-<li><code>boolean touchable = event.getX() &gt; (getWidth() - getTotalPaddingRight())&amp;&amp; (event.getX() &lt; ((getWidth() - getPaddingRight())));<code></code></code></li>
-<li>所以重写onTouchEvent方法，我需要根据当前输入类型来判断是否需要明暗文切换</li>
-<li><pre>public boolean onTouchEvent(MotionEvent event) {
-      if (event.getAction() == MotionEvent.ACTION_UP) {
-          if (getCompoundDrawables()[2] != null) {
-
-              boolean touchable = event.getX() > (getWidth() - getTotalPaddingRight())
-                      && (event.getX() < ((getWidth() - getPaddingRight())));
-
-              if (touchable) {
-                  if(getInputType()==InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD+InputType.TYPE_CLASS_TEXT){
-                      setCompoundDrawables(null, null, mRightDrawableSelect, null);
-                      setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                      //view.setText(view.getText().toString());
-                  }else{
-                      setCompoundDrawables(null, null, mRightDrawableUnSelect, null);
-                      setInputType(InputType.TYPE_CLASS_TEXT |InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
-                  }
-                  setSelection(getText().length());
-              }
-          }
-      }
-
-      return super.onTouchEvent(event);
-  } </pre></li>
-<li>最好还是通过接口的形式让外部传入相应的点击事件。</li>
-</ul>
-
+        <pre><code>public ActivityResult execStartActivity(
+        Context who, IBinder contextThread, IBinder token, Activity target,
+        Intent intent, int requestCode, Bundle options) {
+    IApplicationThread whoThread = (IApplicationThread) contextThread;
+    Uri referrer = target != null ? target.onProvideReferrer() : null;
+    if (referrer != null) {
+        intent.putExtra(Intent.EXTRA_REFERRER, referrer);
+    }
+     //mActivityMonitors是所有ActivityMonitor的集合，用于监视应用的Activity(记录状态)
+    if (mActivityMonitors != null) {
+        synchronized (mSync) {
+            final int N = mActivityMonitors.size();
+            for (int i=0; i&lt;N; i++) {
+                final ActivityMonitor am = mActivityMonitors.get(i);
+                //判断是否存在匹配的Activity存在直接跳出
+                if (am.match(who, null, intent)) {
+                    am.mHits++;
+                    //如果目标目前被缩定直接返回
+                    if (am.isBlocking()) {
+                        return requestCode &gt;= 0 ? am.getResult() : null;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    try {
+        intent.migrateExtraStreamToClipData();
+        intent.prepareToLeaveProcess();
+        //真是打开的方法
+        int result = ActivityManagerNative.getDefault()
+            .startActivity(whoThread, who.getBasePackageName(), intent,
+                    intent.resolveTypeIfNeeded(who.getContentResolver()),
+                    token, target != null ? target.mEmbeddedID : null,
+                    requestCode, 0, null, options);
+        //检查启动Activity的结果，主要是根据返回结果抛出一些异常
+        checkStartActivityResult(result, intent);
+    } catch (RemoteException e) {
+        throw new RuntimeException(&quot;Failure from system&quot;, e);
+    }
+    return null;
+}
+</code></pre><p>mInstrumentation的execStartActivity(）主要任务：</p>
+<ol>
+<li>mActivityMonitors是否存在需要打开的Activity不能打开直接跳出</li>
+<li>如果可以打开Activity进行ActivityManagerNative.getDefault().tartActivity（）进行Activity的打开。</li>
+<li>检查打开返回的结果，主要检查是否须需要抛出异常。如ActivityNotFoundException；<h1 id="ActivityManagerNative类"><a href="#ActivityManagerNative类" class="headerlink" title="ActivityManagerNative类"></a>ActivityManagerNative类</h1>ActivityManagerNative类是一个抽象类，继承Binder并实现了IActivityManager。<br>ActivityManagerNative通过getDefault()获取到一个ActivityManagerProxy的示例，并且将ActivityManagerService的远程代理对象返回,<br>后调用他的starXxx方法开启Service、Activity或者registReceiver。</li>
+</ol>
+<pre><code>public int startActivity(IApplicationThread caller, String callingPackage, Intent intent,
+        String resolvedType, IBinder resultTo, String resultWho, int requestCode,
+        int startFlags, ProfilerInfo profilerInfo, Bundle options) throws RemoteException {
+    //将参数进行持久化便于后续处理
+    Parcel data = Parcel.obtain();
+    Parcel reply = Parcel.obtain();
+    data.writeInterfaceToken(IActivityManager.descriptor);
+    data.writeStrongBinder(caller != null ? caller.asBinder() : null);
+    data.writeString(callingPackage);
+    intent.writeToParcel(data, 0);
+    data.writeString(resolvedType);
+    data.writeStrongBinder(resultTo);
+    data.writeString(resultWho);
+    data.writeInt(requestCode);
+    data.writeInt(startFlags);
+    if (profilerInfo != null) {
+        data.writeInt(1);
+        profilerInfo.writeToParcel(data, Parcelable.PARCELABLE_WRITE_RETURN_VALUE);
+    } else {
+        data.writeInt(0);
+    }
+    if (options != null) {
+        data.writeInt(1);
+        options.writeToParcel(data, 0);
+    } else {
+        data.writeInt(0);
+    }
+    //根据上面分析mRemote远程代理对象是ActivityManagerService
+    mRemote.transact(START_ACTIVITY_TRANSACTION, data, reply, 0);
+    reply.readException();
+    int result = reply.readInt();
+    reply.recycle();
+    data.recycle();
+    return result;}
+</code></pre><p>上面说到ActivityManagerNative才是真正干活的，他维护了ActivityManagerService的远程代理<br>对象mRemote ，最终会通过mRemote将开启Activity的消息传送给ActivityManagerService，<br>这样就来到了ActivityManagerService的startActivity方法中。</p>
+<pre><code>public final int startActivityAsUser(IApplicationThread caller, String callingPackage,
+        Intent intent, String resolvedType, IBinder resultTo, String resultWho, int requestCode,
+        int startFlags, ProfilerInfo profilerInfo, Bundle options, int userId) {
+    enforceNotIsolatedCaller(&quot;startActivity&quot;);
+    userId = handleIncomingUser(Binder.getCallingPid(), Binder.getCallingUid(), userId,
+            false, ALLOW_FULL_ONLY, &quot;startActivity&quot;, null);
+    // TODO: Switch to user app stacks here.
+    return mStackSupervisor.startActivityMayWait(caller, -1, callingPackage, intent,
+            resolvedType, null, null, resultTo, resultWho, requestCode, startFlags,
+            profilerInfo, null, null, options, false, userId, null, null);
+}
+</code></pre>
       
     </div>
     
@@ -258,18 +321,9 @@ boolean touchable = ev">
     
 <nav id="article-nav">
   
-    <a href="/2016/09/23/Activity启动过程分析/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Activity启动过程分析
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/18/APK-重新签名打包/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">APK 重新签名打包</div>
+    <a href="/2016/03/20/EditText添加drawableXXX的点击事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">EditText添加drawableXXX的点击事件</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -304,7 +358,7 @@ boolean touchable = ev">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="EditText添加drawableXXX的点击事件" data-title="EditText添加drawableXXX的点击事件" data-url="http://yoursite.com/2016/03/20/EditText添加drawableXXX的点击事件/"></div>
+	<div class="ds-thread" data-thread-key="Activity启动过程分析" data-title="Activity启动过程分析" data-url="http://yoursite.com/2016/09/23/Activity启动过程分析/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
