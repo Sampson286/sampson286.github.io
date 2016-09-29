@@ -18,7 +18,7 @@
         Context who, IBinder contextThread, IBinder token, Activity target,
         Intent intent, int requestCode, Bundle options) {
     IApplicationThread wh">
-<meta property="og:updated_time" content="2016-09-23T08:33:40.385Z">
+<meta property="og:updated_time" content="2016-09-29T03:23:50.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Activity启动过程分析">
 <meta name="twitter:description" content="public ActivityResult execStartActivity(
@@ -80,7 +80,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -268,7 +268,8 @@
 <ol>
 <li>mActivityMonitors是否存在需要打开的Activity不能打开直接跳出</li>
 <li>如果可以打开Activity进行ActivityManagerNative.getDefault().tartActivity（）进行Activity的打开。</li>
-<li>检查打开返回的结果，主要检查是否须需要抛出异常。如ActivityNotFoundException；<h1 id="ActivityManagerNative类"><a href="#ActivityManagerNative类" class="headerlink" title="ActivityManagerNative类"></a>ActivityManagerNative类</h1>ActivityManagerNative类是一个抽象类，继承Binder并实现了IActivityManager。<br>ActivityManagerNative通过getDefault()获取到一个ActivityManagerProxy的示例，并且将ActivityManagerService的远程代理对象返回,<br>后调用他的starXxx方法开启Service、Activity或者registReceiver。</li>
+<li>检查打开返回的结果，主要检查是否须需要抛出异常。如ActivityNotFoundException；<a id="more"></a>
+<h1 id="ActivityManagerNative类"><a href="#ActivityManagerNative类" class="headerlink" title="ActivityManagerNative类"></a>ActivityManagerNative类</h1>ActivityManagerNative类是一个抽象类，继承Binder并实现了IActivityManager。<br>ActivityManagerNative通过getDefault()获取到一个ActivityManagerProxy的示例，并且将ActivityManagerService的远程代理对象返回,<br>后调用他的starXxx方法开启Service、Activity或者registReceiver。</li>
 </ol>
 <pre><code>public int startActivity(IApplicationThread caller, String callingPackage, Intent intent,
         String resolvedType, IBinder resultTo, String resultWho, int requestCode,

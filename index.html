@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -249,55 +249,7 @@
 <ol>
 <li>mActivityMonitors是否存在需要打开的Activity不能打开直接跳出</li>
 <li>如果可以打开Activity进行ActivityManagerNative.getDefault().tartActivity（）进行Activity的打开。</li>
-<li>检查打开返回的结果，主要检查是否须需要抛出异常。如ActivityNotFoundException；<h1 id="ActivityManagerNative类"><a href="#ActivityManagerNative类" class="headerlink" title="ActivityManagerNative类"></a>ActivityManagerNative类</h1>ActivityManagerNative类是一个抽象类，继承Binder并实现了IActivityManager。<br>ActivityManagerNative通过getDefault()获取到一个ActivityManagerProxy的示例，并且将ActivityManagerService的远程代理对象返回,<br>后调用他的starXxx方法开启Service、Activity或者registReceiver。</li>
-</ol>
-<pre><code>public int startActivity(IApplicationThread caller, String callingPackage, Intent intent,
-        String resolvedType, IBinder resultTo, String resultWho, int requestCode,
-        int startFlags, ProfilerInfo profilerInfo, Bundle options) throws RemoteException {
-    //将参数进行持久化便于后续处理
-    Parcel data = Parcel.obtain();
-    Parcel reply = Parcel.obtain();
-    data.writeInterfaceToken(IActivityManager.descriptor);
-    data.writeStrongBinder(caller != null ? caller.asBinder() : null);
-    data.writeString(callingPackage);
-    intent.writeToParcel(data, 0);
-    data.writeString(resolvedType);
-    data.writeStrongBinder(resultTo);
-    data.writeString(resultWho);
-    data.writeInt(requestCode);
-    data.writeInt(startFlags);
-    if (profilerInfo != null) {
-        data.writeInt(1);
-        profilerInfo.writeToParcel(data, Parcelable.PARCELABLE_WRITE_RETURN_VALUE);
-    } else {
-        data.writeInt(0);
-    }
-    if (options != null) {
-        data.writeInt(1);
-        options.writeToParcel(data, 0);
-    } else {
-        data.writeInt(0);
-    }
-    //根据上面分析mRemote远程代理对象是ActivityManagerService
-    mRemote.transact(START_ACTIVITY_TRANSACTION, data, reply, 0);
-    reply.readException();
-    int result = reply.readInt();
-    reply.recycle();
-    data.recycle();
-    return result;}
-</code></pre><p>上面说到ActivityManagerNative才是真正干活的，他维护了ActivityManagerService的远程代理<br>对象mRemote ，最终会通过mRemote将开启Activity的消息传送给ActivityManagerService，<br>这样就来到了ActivityManagerService的startActivity方法中。</p>
-<pre><code>public final int startActivityAsUser(IApplicationThread caller, String callingPackage,
-        Intent intent, String resolvedType, IBinder resultTo, String resultWho, int requestCode,
-        int startFlags, ProfilerInfo profilerInfo, Bundle options, int userId) {
-    enforceNotIsolatedCaller(&quot;startActivity&quot;);
-    userId = handleIncomingUser(Binder.getCallingPid(), Binder.getCallingUid(), userId,
-            false, ALLOW_FULL_ONLY, &quot;startActivity&quot;, null);
-    // TODO: Switch to user app stacks here.
-    return mStackSupervisor.startActivityMayWait(caller, -1, callingPackage, intent,
-            resolvedType, null, null, resultTo, resultWho, requestCode, startFlags,
-            profilerInfo, null, null, options, false, userId, null, null);
-}
-</code></pre>
+<li>检查打开返回的结果，主要检查是否须需要抛出异常。如ActivityNotFoundException；
       
     </div>
     
@@ -310,6 +262,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/09/20/Activity启动过程分析/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
