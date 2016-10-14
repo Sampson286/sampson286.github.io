@@ -27,7 +27,7 @@
 
 在这个图片中可以看到右边有一条边界线应该是视图的初始位置，可以证明第一个特点，下层视图有一定的偏移，大概的偏移">
 <meta property="og:image" content="http://i.imgur.com/HqKFuoq.png">
-<meta property="og:updated_time" content="2016-10-14T09:39:44.373Z">
+<meta property="og:updated_time" content="2016-10-14T09:50:50.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="仿掌阅书城书架切换">
 <meta name="twitter:description" content="首先我们先分析一下掌阅在书城书架的切换效果：
@@ -94,7 +94,7 @@
 						<li>Tags</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -259,8 +259,9 @@
 <li><p>AccelerantTween类：创建一个线程，根据需要完成的时间，和每一帧的时间来进行事件的回调，完成相应的动作。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Runnable mTick = new Runnable() &#123;</span><br><span class="line"></span><br><span class="line">        public void run() &#123;</span><br><span class="line">            long baseTime = mBaseTime;</span><br><span class="line">            long now = SystemClock.uptimeMillis();</span><br><span class="line">            long diff = now - baseTime;</span><br><span class="line">            int duration = mDuration;</span><br><span class="line">            float val = diff / (float) duration;</span><br><span class="line">            val = Math.max(Math.min(val, 1.0f), 0.0f);</span><br><span class="line">            currentValue = val;</span><br><span class="line">            if (!isPause) &#123;</span><br><span class="line">                if (diff &gt;= duration) &#123;</span><br><span class="line">                    mCallback.onTweenFinished(next);</span><br><span class="line">                    isLastFrame = true;</span><br><span class="line">                &#125;</span><br><span class="line">                mCallback.onTweenValueChanged(currentValue, isLastFrame);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                mCallback.onTweenStop();</span><br><span class="line">            &#125;</span><br><span class="line">            int frame = (int) (diff / FRAME_TIME);</span><br><span class="line">            next = baseTime + ((frame + 1) * FRAME_TIME);</span><br><span class="line">            if (diff &lt; duration &amp;&amp; !isPause) &#123;</span><br><span class="line">                mHandler.postAtTime(this, next);</span><br><span class="line">            &#125;</span><br><span class="line">            if (diff &gt;= duration) &#123;</span><br><span class="line">                mRunning = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>大概逻辑详细可以看源码：<a href="https://github.com/zhaoyongchao/SlideSwitchScreen" target="_blank" rel="external">https://github.com/zhaoyongchao/SlideSwitchScreen</a></p>
+<li><p>在根据计算出的偏移距离和透明度进行绘制。</p>
 </li>
+<li>大概逻辑详细可以看源码：<a href="https://github.com/zhaoyongchao/SlideSwitchScreen" target="_blank" rel="external">https://github.com/zhaoyongchao/SlideSwitchScreen</a></li>
 </ul>
 
       
