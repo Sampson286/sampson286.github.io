@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -212,14 +212,14 @@
 <li>Annotation 类似一种修饰符，用于修饰包、类型、构造方法、方法、成语变量、参数的声明语句。</li>
 <li>Annotation 是一个接口。通过反射来访问annotation信息。根据获取的信息来决定如何使用注解信息来做一些事情。</li>
 <li>Annotation 不会对程序造成影响。</li>
-<li>Java预言解析器在工作的时候默认是忽略这些annotation，所以在JVM中”不起作用”，只有通过配套的工具才能对这些注解进行访问和处理。<br>###Annotation的使用</li>
+<li>Java预言解析器在工作的时候默认是忽略这些annotation，所以在JVM中”不起作用”，只有通过配套的工具才能对这些注解进行访问和处理。<h3 id="Annotation的使用"><a href="#Annotation的使用" class="headerlink" title="Annotation的使用"></a>Annotation的使用</h3></li>
 <li>Annotation的声明需要通过@interface这个关键字。会继承Annotation接口。</li>
 <li>Annotation的方法必须声明为无参数、无异常。方法名代表成员变量名，方法的返回值代表了成员变量的类型。而且返回值类型必须为基本数据类型、Class类型、枚举类型、String类型、Annotation类型或者由前面任意一种类型组成的一维数组。方法后面可以使用default和一个默认数值来声明一个成员变量的默认值，null不能作为成员变量的默认值。</li>
 <li>注解中如果只有一个默认属性，可以直接使用value()函数，一个属性也没有的则表示该Annotation为Mark Annotation。<br>例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Target(ElementType.METHOD)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface Test &#123;</span><br><span class="line">    String value();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>直接使用@Test(“demo”)，等同于@Test(value=”demo”)<br>添加默认值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Target(ElementType.METHOD)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">public @interface TestDefault &#123;</span><br><span class="line">    public String description() default &quot;demo&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>###Annotation的作用<br>很多使用作为一种辅助途径，应用在软件框架或工具中。这些工具类可以根据不同的Annotation心采取不同的处理，具有”让编译器进行编译检查的功能”<br>
+<h3 id="Annotation的作用"><a href="#Annotation的作用" class="headerlink" title="Annotation的作用"></a>Annotation的作用</h3><p>很多使用作为一种辅助途径，应用在软件框架或工具中。这些工具类可以根据不同的Annotation心采取不同的处理，具有”让编译器进行编译检查的功能”<br>
       
     </div>
     
