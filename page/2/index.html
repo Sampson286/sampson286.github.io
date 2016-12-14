@@ -70,7 +70,7 @@
 						<li>Tags</li>
 						
 						
-						<li>A propos</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/AndroidTV/" style="font-size: 10px;">AndroidTV</a> <a href="/tags/Android自定义控件/" style="font-size: 20px;">Android自定义控件</a> <a href="/tags/apk打包/" style="font-size: 10px;">apk打包</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jenkins打包/" style="font-size: 10px;">jenkins打包</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/源码分析/" style="font-size: 10px;">源码分析</a>
+						<a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/AndroidTV/" style="font-size: 10px;">AndroidTV</a> <a href="/tags/Android自定义控件/" style="font-size: 20px;">Android自定义控件</a> <a href="/tags/apk打包/" style="font-size: 10px;">apk打包</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jenkins打包/" style="font-size: 10px;">jenkins打包</a> <a href="/tags/tip/" style="font-size: 10px;">tip</a> <a href="/tags/源码分析/" style="font-size: 10px;">源码分析</a> <a href="/tags/轮子的制造过程/" style="font-size: 10px;">轮子的制造过程</a>
 					</div>
 				</section>
 				
@@ -176,6 +176,68 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-jenkins-gradle-android自动化构建apk" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/10/jenkins-gradle-android自动化构建apk/" class="article-date">
+  	<time datetime="2016-03-10T07:07:14.000Z" itemprop="datePublished">2016-03-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/10/jenkins-gradle-android自动化构建apk/">jenkins+gradle+android自动化构建apk（Linux服务器）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>安装jenkins，这个网上教程挺多的。 </li>
+<li>在服务配置jdk、gradle、android环境变量，解压文件到目录。配置环境变量：<br>vi etc/profile在文件底部添加<br>export GRADLE_HOME=”/android_client/gradle-2.7”<br>export ANDROID_HOME=”/android_client/sdk”<br>export JAVA_HOME=”/usr/local/jdk7”<br>export PATH=”\$PATH:\$JAVA_HOME/bin:\$GRADLE_HOME/bin:\$ANDROID_HOME/tools”<br>进行验证是否正确配置
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jenkins打包/">jenkins打包</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/10/jenkins-gradle-android自动化构建apk/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-java正则使用及总结" class="article article-type-post" itemscope itemprop="blogPost">
   
