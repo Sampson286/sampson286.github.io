@@ -4,27 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>APK 重新签名打包 | Zyc</title>
+  <title>Debug自定义的AbstractProcesson | Zyc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在给生成的apk签名，jdk1.6升级到jdk1.7会出现以下问题：
-1.明明签名了，并且签名检查apk中也有签名文件，但是安装的时候就是提示安装失败，没有签名，解决办法
-将签名命令上加一段话: -digestalg SHA1 -sigalg MD5withRSA 加上后就可以了
-旧：jarsigner -keystore test.keystore -storepass test123 -sig">
+  <meta name="description" content="###在上一篇文章中了解了一下自定义AbstractProcessor来解析编译时期的注解，来生成一些代码。在开发过程中我能在解析注解逻辑的时候需要进行Debug跟踪。但是普通的Debug不会进去。所以本文介绍如何调试自己的AbstractProcessor.
+
+需要在自定义的AbstractProcessor设置断点，init()方法是入口。所以在此处设置断点。
+设置gradle daemon端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="APK 重新签名打包">
-<meta property="og:url" content="http://yoursite.com/2016/03/18/APK-重新签名打包/index.html">
+<meta property="og:title" content="Debug自定义的AbstractProcesson">
+<meta property="og:url" content="http://yoursite.com/2017/01/06/Debug自定义的AbstractProcesson/index.html">
 <meta property="og:site_name" content="Zyc">
-<meta property="og:description" content="在给生成的apk签名，jdk1.6升级到jdk1.7会出现以下问题：
-1.明明签名了，并且签名检查apk中也有签名文件，但是安装的时候就是提示安装失败，没有签名，解决办法
-将签名命令上加一段话: -digestalg SHA1 -sigalg MD5withRSA 加上后就可以了
-旧：jarsigner -keystore test.keystore -storepass test123 -sig">
-<meta property="og:updated_time" content="2016-09-29T06:37:58.202Z">
+<meta property="og:description" content="###在上一篇文章中了解了一下自定义AbstractProcessor来解析编译时期的注解，来生成一些代码。在开发过程中我能在解析注解逻辑的时候需要进行Debug跟踪。但是普通的Debug不会进去。所以本文介绍如何调试自己的AbstractProcessor.
+
+需要在自定义的AbstractProcessor设置断点，init()方法是入口。所以在此处设置断点。
+设置gradle daemon端">
+<meta property="og:updated_time" content="2017-01-06T08:46:42.394Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="APK 重新签名打包">
-<meta name="twitter:description" content="在给生成的apk签名，jdk1.6升级到jdk1.7会出现以下问题：
-1.明明签名了，并且签名检查apk中也有签名文件，但是安装的时候就是提示安装失败，没有签名，解决办法
-将签名命令上加一段话: -digestalg SHA1 -sigalg MD5withRSA 加上后就可以了
-旧：jarsigner -keystore test.keystore -storepass test123 -sig">
+<meta name="twitter:title" content="Debug自定义的AbstractProcesson">
+<meta name="twitter:description" content="###在上一篇文章中了解了一下自定义AbstractProcessor来解析编译时期的注解，来生成一些代码。在开发过程中我能在解析注解逻辑的时候需要进行Debug跟踪。但是普通的Debug不会进去。所以本文介绍如何调试自己的AbstractProcessor.
+
+需要在自定义的AbstractProcessor设置断点，init()方法是入口。所以在此处设置断点。
+设置gradle daemon端">
   
     <link rel="alternative" href="/atom.xml" title="Zyc" type="application/atom+xml">
   
@@ -185,11 +185,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-APK-重新签名打包" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Debug自定义的AbstractProcesson" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/18/APK-重新签名打包/" class="article-date">
-  	<time datetime="2016-03-18T05:51:42.000Z" itemprop="datePublished">2016-03-18</time>
+      <a href="/2017/01/06/Debug自定义的AbstractProcesson/" class="article-date">
+  	<time datetime="2017-01-06T08:04:12.000Z" itemprop="datePublished">2017-01-06</time>
 </a>
     </div>
   
@@ -202,7 +202,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      APK 重新签名打包
+      Debug自定义的AbstractProcesson
     </h1>
   
 
@@ -211,7 +211,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apk打包/">apk打包</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tip/">tip</a></li></ul>
 	</div>
 
         
@@ -222,14 +222,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在给生成的apk签名，jdk1.6升级到jdk1.7会出现以下问题：</p>
-<p>1.明明签名了，并且签名检查apk中也有签名文件，但是安装的时候就是提示安装失败，没有签名，解决办法</p>
-<p>将签名命令上加一段话: -digestalg SHA1 -sigalg MD5withRSA 加上后就可以了</p>
-<p>旧：<code>jarsigner -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code></p>
-<p> 新：<code>jarsigner -digestalg SHA1 -sigalg MD5withRSA -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code><br>这样签名完成后就可以安装成功了。<a id="more"></a><br>2.以上方法可以解决签名后不能安装成功的问题，但是会发现有警告：</p>
-<p>警告:<br>未提供 -tsa 或 -tsacert, 此 jar 没有时间戳。如果没有时间戳, 则在签名者证书的到期<br>日期 (2063-07-18) 或以后的任何撤销日期之后, 用户可能无法验证此 jar。<br>入有这个警告的话本身对签名没有影响，但是总感觉怪怪的，要想去掉这个警告只要在命令上再加上 -tsa <a href="https://timestamp.geotrust.com/tsa" target="_blank" rel="external">https://timestamp.geotrust.com/tsa</a> 就可以了</p>
-<p>最终命令是：</p>
-<p> <code>jarsigner -digestalg SHA1 -sigalg MD5withRSA -tsa https://timestamp.geotrust.com/tsa -keystore test.keystore -storepass test123 -signedjar signed_client.apk client.apk test</code></p>
+        <p>###在上一篇文章中了解了一下自定义AbstractProcessor来解析编译时期的注解，来生成一些代码。在开发过程中我能在解析注解逻辑的时候需要进行Debug跟踪。但是普通的Debug不会进去。所以本文介绍如何调试自己的AbstractProcessor.</p>
+<ul>
+<li>需要在自定义的AbstractProcessor设置断点，init()方法是入口。所以在此处设置断点。</li>
+<li><p>设置gradle daemon端口和JVM参数，在gradle.propertues加入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">org.gradle.daemon=true //守护线程</span><br><span class="line">org.gradle.jvmargs=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005//设置端口</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在命令行中运行gradle daemon来启动守护线程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradlew --daemon</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在Android Studio建立Remote Debugger并运行它。<br>IP:localhost，端口:5005。一旦你完成并运行它，那它就会连接到daemon线程中了。如果端口被占用自己修改。</p>
+</li>
+<li><p>最后gradle命令来运行构建。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradlew assembleDebug</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>现在就可以正常的按照流程进行调试了。</p>
+</li>
+</ul>
 
       
     </div>
@@ -239,18 +248,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/03/20/EditText添加drawableXXX的点击事件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          EditText添加drawableXXX的点击事件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/15/AndroidTV焦点问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">AndroidTV焦点问题</div>
+    <a href="/2016/12/12/annotationProcessor实战-了解ButterKinfe过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">annotationProcessor实战,了解ButterKinfe过程</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -285,7 +285,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="APK-重新签名打包" data-title="APK 重新签名打包" data-url="http://yoursite.com/2016/03/18/APK-重新签名打包/"></div>
+	<div class="ds-thread" data-thread-key="Debug自定义的AbstractProcesson" data-title="Debug自定义的AbstractProcesson" data-url="http://yoursite.com/2017/01/06/Debug自定义的AbstractProcesson/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
